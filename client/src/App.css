@@ -1,0 +1,50 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0; /* Aesthetic background color for the whole page */
+  color: #333;
+}
+
+.hotel-card {
+  width: 350px; /* Widening the hotel card */
+  margin: 20px auto;
+  background-color: #ffffff; /* White background for the card */
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Improved shadow effect */
+}
+
+.card-header {
+  background-color: #f2f2f2; /* Aesthetic blue color for the header */
+  text-align: center;
+  padding: 15px; /* Increased padding for a better look */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card-header h2 {
+  margin: 0;
+}
+
+.card-image {
+  /* Placeholder gradient background for the card image */
+  height: 200px; /* Increased height for a better visual impact */
+  background-size: cover;
+  background-position: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card-content {
+  padding: 20px; /* Increased padding for better spacing */
+  text-align: center;
+}
+
+.card-content p {
+  margin: 0 0 10px 0;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
