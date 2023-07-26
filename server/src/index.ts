@@ -22,7 +22,7 @@ async function main() {
 async function scraperWP() {
   const url =
     WITHGREECE === true
-      ? `https://www.wakacje.pl/wczasy/costa-almeria,costa-blanca,costa-de-la-luz,costa-del-azahar,fuerteventura,gran-canaria,la-gomera,la-palma,lanzarote,majorka,minorka,sierra-nevada,teneryfa,grecja/?od-2023-09-01,do-2023-09-30,samolotem,all-inclusive,${MIN_STARS}-gwiazdkowe,ocena-${MIN_RATINGWP},z-katowic,z-krakowa,z-warszawy,tanio&src=fromSearch&gclid=Cj0KCQjw8NilBhDOARIsAHzpbLBsR1Zztd_WZfm-_4LFw38hLKLpfAnmjRPI_LIU7h-TlSURsh_p1UIaAsD4EALw_wcB`
+      ? `https://www.wakacje.pl/wczasy/costa-almeria,costa-blanca,costa-de-la-luz,costa-del-azahar,fuerteventura,gran-canaria,la-gomera,la-palma,lanzarote,majorka,minorka,sierra-nevada,teneryfa,chalkidiki,itaka,karpathos,korfu,kreta,peloponez,santorini,zakynthos/?od-2023-09-01,do-2023-09-30,samolotem,all-inclusive,${MIN_STARS}-gwiazdkowe,ocena-${MIN_RATINGWP},z-katowic,z-krakowa,z-warszawy,tanio&src=fromSearch&gclid=Cj0KCQjw8NilBhDOARIsAHzpbLBsR1Zztd_WZfm-_4LFw38hLKLpfAnmjRPI_LIU7h-TlSURsh_p1UIaAsD4EALw_wcB`
       : `https://www.wakacje.pl/wczasy/costa-almeria,costa-blanca,costa-de-la-luz,costa-del-azahar,fuerteventura,gran-canaria,la-gomera,la-palma,lanzarote,majorka,minorka,sierra-nevada,teneryfa/?od-2023-09-01,do-2023-09-30,samolotem,all-inclusive,${MIN_STARS}-gwiazdkowe,ocena-${MIN_RATINGWP},z-katowic,z-krakowa,z-warszawy,tanio&src=fromSearch&gclid=Cj0KCQjw8NilBhDOARIsAHzpbLBsR1Zztd_WZfm-_4LFw38hLKLpfAnmjRPI_LIU7h-TlSURsh_p1UIaAsD4EALw_wcB`;
   const browser: Browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();

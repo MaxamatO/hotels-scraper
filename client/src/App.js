@@ -1,39 +1,50 @@
 import "./App.css";
 import React, { useEffect, useState } from "react";
+import Hotel from "./components/hotelComponent";
+import Pagination from "./components/paginationComponent";
+import fetchData from "./helpers/fetching";
 
 function App() {
   const [backendData, setBackendData] = useState([{}]);
-  const [paginatedData, setPaginatedData] = useState([{}]);
+  const [totalSize, setTotalSize] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
 
-  const paginate = (data) => {};
+  const goPage = async (number) => {
+    const data = await fetchData(number);
+    setCurrentPage(data.page);
+    setBackendData(data.hotels);
+  };
 
   useEffect(() => {
-    fetch("/api")
-      .then((response) => response.json())
-      .then((data) => {
-        setBackendData(data);
-      });
+    async function fetchAsync() {
+      const data = await fetchData();
+      setBackendData(data.hotels);
+      setCurrentPage(data.page);
+      setTotalSize(data.totalSize);
+    }
+    fetchAsync();
   }, []);
 
   return (
-    <div className="App">
-      {backendData.map((hotel) => {
-        return (
-          <div class="hotel-card">
-            <a href={hotel.url} target="_blank">
-              <div class="card-header">
-                <h2>{hotel.title}</h2>
-              </div>
-              <div class="card-image"></div>
-              <div class="card-content">
-                <p>{hotel.where}</p>
-                <p>{hotel.price}/os</p>
-              </div>
-            </a>
+    <>
+      {backendData.length === 0 ? (
+        <>loading</>
+      ) : (
+        <main>
+          <div className="App">
+            {backendData.map((hotel) => {
+              return <Hotel hotel={hotel} />;
+            })}
           </div>
-        );
-      })}
-    </div>
+
+          <Pagination
+            totalSize={totalSize}
+            currentPage={currentPage}
+            goPage={goPage}
+          />
+        </main>
+      )}
+    </>
   );
 }
 
